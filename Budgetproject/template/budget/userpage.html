@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% extends 'budget/base.html'%}
+{% block body_block %}
+<body>
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-lg-3">
+        <h1 class="my-4">Make better decisions with your money</h1>
+        <div class="list-group">
+          <a href="{% url 'entry' %}" class="list-group-item">Track your spending</a>
+          <a href="{% url 'budgetlist' %}" class="list-group-item">View all your finances</a>
+          <a href="{% url 'datewise' %}" class="list-group-item"> Datewise Review</a>
+          <a href="{% url 'categorywise' %}" class="list-group-item">Categorywise Review</a>
+          <a href="{% url 'logout' %}" class="list-group-item">Log out</a>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+{% endblock%}

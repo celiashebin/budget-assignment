@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{% extends 'budget/base.html'%}
+{% block body_block %}
+
+
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+
+
+<h1>Registration</h1>
+<form method="post" id="refrm">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="button" class="btn btn-success" onclick="save()">Register</button>
+    <button type="button" class="btn btn-danger" onclick="cancel()">Cancel</button>
+
+</form>
+    </div>
+            </div>
+    <div class="col-sm">
+
+    </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script>
+    function save() {
+    $.ajax({
+         type:"POST",
+         url: "{% url 'Register' %}",
+         data: $('#refrm').serialize(),
+         success: function (data) {
+
+         if (data.status==200){
+             console.log("data saved");
+             swal("user successfully registered")
+             .then((value) => {
+             window.location.href='login'
+             });
+
+         }
+         else
+         {
+            swal("not saved","error");
+         }
+         }
+         });
+}
+
+</script>
+
+</body>
+</html>
+{% endblock %}
+
+
+

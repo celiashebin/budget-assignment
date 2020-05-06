@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'budget/base.html'%}
+{% block body_block %}
+
+<body>
+
+<div class="container">
+  <div class="jumbotron">
+    <h1>Best Money management</h1>
+    <p>Easily create budget, and see our suggestions based on your spending</p>
+  </div>
+  <link><a href="{% url 'Register'%}">Sign Up</a>
+  <div>
+  <link>Already registered ?<a href="{% url 'login'%}"> Sign In</a>
+    </div>
+</div>
+</body>
+</html>
+{% endblock%}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% extends 'budget/base.html'%}
+{% block body_block %}
+<body>
+<div class="contaner">
+    <div class="row">
+    </div>
+        <div class="col-sm">
+
+
+        <div class="datediv">
+            <form method="post" id="refrm">
+                {% csrf_token %}
+                {{ form.as_p}}
+                <button type="submit" class="btn btn-success">view</button>
+                <button type="button" class="btn btn-danger">cancel</button>
+            </form>
+        </div>
+        </div>
+
+</div>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">category </th><th scope="col">amount</th>
+    </tr>
+    </thead>
+    {%for data in qs%}
+    <tr>
+        <td>{{ data.category_type__category_name}}</td>
+        <td>{{ data.categorysum}}</td>
+    </tr>
+    {% endfor%}
+</table>
+<div>
+    <link><a href="{% url 'userhome' %}">Home</a>
+</div>
+</body>
+</html>
+{% endblock %}
